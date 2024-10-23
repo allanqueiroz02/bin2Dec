@@ -1,0 +1,8 @@
+:root {
+  --color-tomato: #ff6347;
+}
+
+body {
+  background: var(--color-tomato);
+  font-family: "Share Tech Mono", monospace;
+}
