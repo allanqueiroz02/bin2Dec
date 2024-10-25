@@ -11,8 +11,22 @@
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <h1>Bin2Dec</h1>
-    <p></p>
+    <main class="container">
+      <h1>Bin2Dec</h1>
+      <p>Convert a binary value to decimal.</p>
+      <div class="main-content">
+        <div>
+          <label for="binary-value">BINARY</label>
+          <input type="text" id="binary-value" maxlength="8" />
+          <button id="convert-button">Convert</button>
+        </div>
+        <img width="48" src="./assets/icon-equal.svg" alt="equal icon" />
+        <div>
+          <label>DECIMAL</label>
+          <span id="resultado">-</span>
+        </div>
+      </div>
+    </main>
     <script src="./js/script.js"></script>
   </body>
 </html>
