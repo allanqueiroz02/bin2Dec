@@ -19,3 +19,13 @@ convertButton.addEventListener("click", (event) => {
     resultSpan.innerText = convertedValue;
   }
 });
+
+binaryInput.addEventListener("keydown", (event) => {
+  console.log(">key", event.key);
+
+  if (event.key === "Enter") console.log("Clicou no enter");
+  if (event.key !== "Enter" && event.key !== "0" && event.key !== "1"){
+    event.preventDefault()
+    alert('Não é permitido informar algo diferente de 0 ou 1.')
+  }
+});
