@@ -12,27 +12,33 @@ const changeWarningState = (state) => {
             warningContainer.style.display = "flex";
     }
 };
-const handleConvertValue = () => {
-    if (binaryInput) {
-        const formattedValue = [...binaryInput.value];
-        const convertedValue = formattedValue.reduce((acc, item, index) => {
+const convertBinToDec = (digits) => {
+    if (digits) {
+        const convertedValue = digits.reduce((acc, item, index) => {
             const castedValue = Number(item);
-            const exponent = formattedValue.length - (index + 1);
+            const exponent = digits.length - (index + 1);
             const result = castedValue * 2 ** exponent;
             return acc + result;
         }, 0);
-        if (resultSpan)
-            resultSpan.innerText = convertedValue.toString();
+        return convertedValue;
     }
-    changeWarningState("none");
 };
 const handleClickConvertButton = (event) => {
     event.preventDefault();
-    handleConvertValue();
+    if (binaryInput.value) {
+        const formatedValue = binaryInput.value.split("");
+        const convertedValue = convertBinToDec(formatedValue);
+        if (resultSpan && convertedValue)
+            resultSpan.innerText = convertedValue.toString();
+    }
 };
 const handleKeydownInput = (event) => {
-    if (event.key === "Enter")
-        handleConvertValue();
+    if (event.key === "Enter") {
+        const formatedValue = binaryInput.value.split("");
+        const convertedValue = convertBinToDec(formatedValue);
+        if (resultSpan && convertedValue)
+            resultSpan.innerText = convertedValue.toString();
+    }
     if (event.key !== "Enter" &&
         event.key !== "Backspace" &&
         event.key !== "0" &&
