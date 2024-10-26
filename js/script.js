@@ -1,15 +1,15 @@
 const binaryInput = document.getElementById("binary-value");
-const resultSpan = document.getElementById("resultado");
-const convertButton = document.getElementById("convert-button");
-const warningContainer = document.querySelector(".container-warning");
 const closingWarningButton = document.querySelector(".closing-btn");
+const convertButton = document.getElementById("convert-button");
+const resultSpan = document.getElementById("resultado");
+const warningContainer = document.querySelector(".container-warning");
 
-function changeWarningState(state) {
+const changeWarningState = (state) => {
   if (state === "none") warningContainer.style.display = "none";
   else warningContainer.style.display = "flex";
-}
+};
 
-convertButton.addEventListener("click", (event) => {
+const handleClickConvertButton = (event) => {
   event.preventDefault();
 
   if (binaryInput) {
@@ -27,10 +27,10 @@ convertButton.addEventListener("click", (event) => {
   }
 
   changeWarningState("none");
-});
+};
 
-binaryInput.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") console.log("Clicou no enter");
+const handleKeydownInput = (event) => {
+  if (event.key === "Enter") handleClickConvertButton(event);
   if (
     event.key !== "Enter" &&
     event.key !== "Backspace" &&
@@ -43,8 +43,12 @@ binaryInput.addEventListener("keydown", (event) => {
   if (event.key === "0" || event.key === "1") {
     changeWarningState("none");
   }
-});
+};
 
-closingWarningButton.addEventListener("click", () => {
+const handleCloseWarning = () => {
   changeWarningState("none");
-});
+};
+
+binaryInput.addEventListener("keydown", handleKeydownInput);
+closingWarningButton.addEventListener("click", handleCloseWarning);
+convertButton.addEventListener("click", handleClickConvertButton);
