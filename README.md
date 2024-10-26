@@ -9,4 +9,5 @@ This project is based on [App Ideas Collection](https://github.com/florinpop17/a
 - [x] User views the results in a single output field containing the decimal (base 10) equivalent of the binary number that was entered.
 
 ## Bonus
--  [ ] Unit Tests.
+- [x] User can enter a variable number of binary digits.
+- [ ] Unit Tests.
