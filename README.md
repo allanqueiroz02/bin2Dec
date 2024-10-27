@@ -10,4 +10,4 @@ This project is based on [App Ideas Collection](https://github.com/florinpop17/a
 
 ## Bonus
 - [x] User can enter a variable number of binary digits.
-- [ ] Unit Tests.
+- [x] Unit Tests.
