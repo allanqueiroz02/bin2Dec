@@ -1,4 +1,3 @@
-"use strict";
 const binaryInput = document.getElementById("binary-value");
 const closingWarningButton = document.querySelector(".closing-btn");
 const convertButton = document.getElementById("convert-button");
@@ -12,9 +11,9 @@ const changeWarningState = (state) => {
             warningContainer.style.display = "flex";
     }
 };
-const convertBinToDec = (digits) => {
+export const convertBinToDec = (digits) => {
     if (digits) {
-        const convertedValue = digits.reduce((acc, item, index) => {
+        const convertedValue = digits.split("").reduce((acc, item, index) => {
             const castedValue = Number(item);
             const exponent = digits.length - (index + 1);
             const result = castedValue * 2 ** exponent;
@@ -26,7 +25,7 @@ const convertBinToDec = (digits) => {
 const handleClickConvertButton = (event) => {
     event.preventDefault();
     if (binaryInput.value) {
-        const formatedValue = binaryInput.value.split("");
+        const formatedValue = binaryInput.value;
         const convertedValue = convertBinToDec(formatedValue);
         if (resultSpan && convertedValue)
             resultSpan.innerText = convertedValue.toString();
@@ -34,7 +33,7 @@ const handleClickConvertButton = (event) => {
 };
 const handleKeydownInput = (event) => {
     if (event.key === "Enter") {
-        const formatedValue = binaryInput.value.split("");
+        const formatedValue = binaryInput.value;
         const convertedValue = convertBinToDec(formatedValue);
         if (resultSpan && convertedValue)
             resultSpan.innerText = convertedValue.toString();
