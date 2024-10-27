@@ -13,9 +13,9 @@ const changeWarningState = (state: "none" | "flex") => {
   }
 };
 
-const convertBinToDec = (digits: string[]) => {
+export const convertBinToDec = (digits: string) => {
   if (digits) {
-    const convertedValue = digits.reduce((acc, item, index) => {
+    const convertedValue = digits.split("").reduce((acc, item, index) => {
       const castedValue = Number(item);
       const exponent = digits.length - (index + 1);
       const result = castedValue * 2 ** exponent;
@@ -25,12 +25,12 @@ const convertBinToDec = (digits: string[]) => {
 
     return convertedValue;
   }
-};
+}
 
 const handleClickConvertButton = (event: Event) => {
   event.preventDefault();
   if (binaryInput.value) {
-    const formatedValue = binaryInput.value.split("");
+    const formatedValue = binaryInput.value;
     const convertedValue = convertBinToDec(formatedValue);
 
     if (resultSpan && convertedValue)
@@ -40,7 +40,7 @@ const handleClickConvertButton = (event: Event) => {
 
 const handleKeydownInput = (event: KeyboardEvent) => {
   if (event.key === "Enter") {
-    const formatedValue = binaryInput.value.split("");
+    const formatedValue = binaryInput.value;
     const convertedValue = convertBinToDec(formatedValue);
 
     if (resultSpan && convertedValue)
